@@ -2,17 +2,12 @@ package com.kalffman.projetos.jokenpo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kalffman.projetos.jokenpo.dto.MoveDTO;
-import com.kalffman.projetos.jokenpo.model.Match;
 import com.kalffman.projetos.jokenpo.model.Move;
-import com.kalffman.projetos.jokenpo.service.MatchService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -75,7 +70,7 @@ class JokenpoApplicationPlayAddRemoveTest {
             .andExpect(status().isCreated());
 
         mockMvc
-            .perform(post("/match/play"))
+            .perform(get("/match/play"))
             .andDo(print())
             .andExpect(status().isOk())
             .andExpect(content().string("GANHADOR(ES) DA PARTIDA: [Jogador 1, Jogador 4]"));

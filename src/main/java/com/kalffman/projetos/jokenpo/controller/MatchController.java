@@ -34,7 +34,7 @@ public class MatchController {
         return ResponseEntity.ok(matchService.newMatch());
     }
 
-    @PostMapping("/play")
+    @GetMapping("/play")
     public ResponseEntity<?> play() {
         try {
             openMatch = matchService.play(openMatch);
@@ -51,7 +51,7 @@ public class MatchController {
         }
     }
 
-    @PostMapping("/play/{id}")
+    @GetMapping("/play/{id}")
     public ResponseEntity<?> play(@PathVariable Integer id) {
         try {
             Match match = matchService.findByID(id);
